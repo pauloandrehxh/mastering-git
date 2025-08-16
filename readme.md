@@ -33,17 +33,19 @@ Foi dividido nos seguintes tópicos:
 ## Comandos Essenciais
 
 |Comando	                               |O que faz
-|----------------------------------------|-------------------------------------------------------------------------------
-|`git clone <URL>`	                     |Baixa um repositório do GitHub pela primeira vez.                             |
-|`git status`	                           |Mostra o status dos seus arquivos (modificados, novos, etc.).                 |
-|`git add .`	                           |Prepara todas as suas alterações para serem salvas no próximo commit.         |
-|`git commit -m "tipo: mensagem"`        |Cria o "Save Point" com uma mensagem descritiva.                              |
-|`git pull`	                             |Baixa e mescla as atualizações do GitHub na sua branch atual.                 |
-|`git push`	                             |Envia seus commits para o GitHub.                                             |
-|`git checkout <nome-da-branch>`	       |Muda para outra branch que já existe.                                         |
-|`git checkout -b <nome-da-nova-branch>` |Cria uma nova branch e já muda para ela.                                      |
-|`git fetch`                             |Baixa as "novidades" do GitHub, mas não aplica (só atualiza seu "mapa").      |
-|`git branch`	                           |Lista todas as branches que você tem localmente.                              |
+|----------------------------------------|------------------------------------------------------------------------------------------------------------------
+|`git init`	                             |Cria um repositório Git novo e vazio na sua máquina. Ele não tem **nenhuma conexão remota**                      |
+|`git remote add origin <URL>`	         |Adiciona uma conexão remota com o repositório                                                                    |
+|`git clone <URL>`	                     |Baixa um repositório do GitHub pela primeira vez e configura a conexão remota (origin) para você automaticamente.|
+|`git status`	                           |Mostra o status dos seus arquivos (modificados, novos, etc.).                                                    |
+|`git add .`	                           |Prepara todas as suas alterações para serem salvas no próximo commit.                                            |
+|`git commit -m "tipo: mensagem"`        |Cria o "Save Point" com uma mensagem descritiva.                                                                 |
+|`git pull`	                             |Baixa e mescla as atualizações do GitHub na sua branch atual.                                                    |
+|`git push`	                             |Envia seus commits para o GitHub.                                                                                |
+|`git checkout <nome-da-branch>`	       |Muda para outra branch que já existe.                                                                            |
+|`git checkout -b <nome-da-nova-branch>` |Cria uma nova branch e já muda para ela.                                                                         |
+|`git fetch`                             |Baixa as "novidades" do GitHub, mas não aplica (só atualiza seu "mapa").                                         |
+|`git branch`	                           |Lista todas as branches que você tem localmente.                                                                 |
 
 ## Tipos de Commit
 - `feat:` (Feature) Usado quando você adiciona uma nova funcionalidade ao programa.
