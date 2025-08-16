@@ -5,6 +5,7 @@ Foi dividido nos seguintes tópicos:
 - [Comandos Essenciais](#comandos-essenciais)
 - [Tipos de Commit](#tipos-de-commit)
 - [Fluxo de Trabalho (Passo a Passo)](#fluxo-de-trabalho-passo-a-passo)
+- [Resolvendo Issues (tarefas)](#resolvendo-issues-tarefas)
 
 ## Conceitos Fundamentais
 - `Git:` É o programa no seu computador que gerencia o histórico do seu projeto. É como o sistema de "Save Points" do jogo. Ele funciona offline, na sua máquina.
@@ -129,3 +130,91 @@ git pull
 git branch -d feat/buscar-receita
 ```
 > O ciclo recomeça para a próxima tarefa!
+
+## Resolvendo Issues (tarefas)
+Issues são usadas para rastrear qualquer tipo de tarefa, ideia, melhoria ou bug.
+
+### As principais vantagens de usar Issues:
+
+- **Organização Centralizada:** Em vez de decidirem tarefas pelo WhatsApp ou de cabeça, tudo fica registrado em um único lugar. Fica claro para a equipe o que precisa ser feito.
+
+- **Definição de Responsabilidade:** Cada Issue pode ser atribuída a uma pessoa. Fica claro quem está trabalhando em quê, evitando que façam a mesma coisa.
+
+- **Histórico e Discussão:** Toda a conversa sobre uma tarefa (dúvidas, sugestões) fica dentro da própria Issue, servindo como um registro de como as decisões foram tomadas.
+
+- **Conexão com o Código:** Esta é a parte mais poderosa. Você pode **_ligar uma Issue diretamente a branches, commits e Pull Requests_**, criando um rastro completo desde a ideia até a implementação.
+
+### Como criar uma Issue
+
+**Passo 1:** Acessando a Área de Issues
+- No seu repositório no GitHub, clique na aba "Issues", que fica ao lado de "Code" e "Pull Requests".
+
+**Passo 2:** Criando uma Nova Issue
+- Clique no botão verde "New issue".
+
+- Você verá dois campos principais: Título e Descrição.
+
+**Título:** Deve ser um resumo claro e direto da tarefa.
+- Exemplo ruim: função
+
+- Exemplo bom: Implementar a função para editar uma receita existente
+
+**A Descrição:** Aqui você detalha a tarefa. 
+- Use o formato Markdown para organizar. Uma ótima prática é criar uma lista de subtarefas (checklist).
+
+Template de Descrição que vocês podem usar:
+
+```Markdown
+## Descrição
+Precisamos criar a funcionalidade que permita ao usuário editar os dados de uma receita que já foi cadastrada. O usuário deve primeiro buscar a receita pelo ID.
+
+## Tarefas a Fazer
+- [ ] Criar uma função `buscarReceitaPorId(id)`.
+- [ ] Criar um submenu de edição (ex: "O que você quer editar? 1-Nome, 2-Ingredientes...").
+- [ ] Implementar a lógica para alterar o nome da receita.
+- [ ] Implementar a lógica para alterar a lista de ingredientes.
+- [ ] Adicionar a opção "Editar Receita" no menu principal.
+```
+
+**Passo 3:** Ferramentas da Barra Lateral
+
+- Assignees (Responsáveis): Clique aqui e escolha quem da dupla será o responsável por esta tarefa. A foto da pessoa aparecerá na Issue.
+
+- Labels (Etiquetas): São etiquetas coloridas para categorizar suas tarefas. É MUITO útil para organizar. 
+
+Quando tudo estiver preenchido, clique em **_"Submit new issue"_**.
+
+### Resolvendo Issues
+
+Cenário: Você (ou seu colega) acabou de criar a Issue #5: "Implementar a função de editar receita" e atribuiu a você.
+
+- **Crie uma Branch a partir da Issue:** Ao criar sua branch, inclua o número da Issue no nome. Isso liga a branch à Issue automaticamente no GitHub.
+
+```
+git checkout -b feat/5-editar-receita
+```
+> O "5" é o número da Issue
+
+- **Faça seus Commits:** Trabalhe no código e faça seus commits normalmente.
+
+```
+git commit -m "feat: adiciona a função buscarReceitaPorId (#5)"
+```
+>(Dica: mencionar (#5) no commit também cria um link para a Issue)
+
+- **Abra o Pull Request:** Quando terminar, envie sua branch (git push) e abra um Pull Request. Na descrição do PR, use uma palavra-chave mágica como **_Closes, Fixes ou Resolves_**.
+
+Exemplo de descrição do PR:
+
+```Markdown
+Este PR implementa a funcionalidade completa de edição de receitas.
+
+Closes #5
+```
+**O que acontece?**
+
+- O PR ficará vinculado à Issue #5.
+
+- Quando este Pull Request for revisado, aprovado e sofrer merge na branch main, o GitHub automaticamente **fechará a Issue #5** para você!
+
+> Este fluxo de trabalho (`Issue` -> `Branch` -> `Commits` -> `Pull Request` -> `Merge` e `Fechamento Automático da Issue`) cria um sistema perfeitamente rastreável, onde qualquer pessoa pode ver a ideia original (na Issue), acompanhar o desenvolvimento (na branch e nos commits) e ver a revisão final (no PR).
